@@ -61,7 +61,7 @@ public class Card {
 	 * returns {@value #CARD_NAME_FACE_DOWN}.
 	 */
 	public String asVisibleString() {
-		if (isFaceUp) {
+		if (this.isFaceUp) {
 			return getName();
 		} else {
 			return CARD_NAME_FACE_DOWN;
