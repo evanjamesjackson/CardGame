@@ -15,7 +15,7 @@ public class BlackjackHand extends Hand {
 	/**
 	 * Returns the best possible value for this hand 
 	 * (ie: all Aces are valued as highly as possible 
-	 * without exceeding {@value #PERFECT_HAND}.
+	 * without exceeding {@value #PERFECT_HAND}).
 	 */
 	@Override
 	public int getValue() {
