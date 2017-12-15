@@ -7,7 +7,7 @@ import java.util.List;
  * Represents a player's Hand of Cards.
  */
 public abstract class Hand {
-	private final List<Card> CARDS;
+	protected final List<Card> CARDS;
 	
 	/**
 	 * Creates a new empty Hand.
