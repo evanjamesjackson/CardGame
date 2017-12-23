@@ -59,10 +59,10 @@ public class BlackjackGame {
 				System.out.println("Player: " + this.PLAYER);
 				System.out.println("Dealer: " + this.DEALER);
 			
-				this.result = GameDecider.validateHands(this.DEALER, this.PLAYER);
+				this.result = GameDecider.decideDuringGame(this.DEALER, this.PLAYER);
 			}
 		
-			this.result = GameDecider.showdown(this.DEALER, this.PLAYER);
+			this.result = GameDecider.decideAtShowdown(this.DEALER, this.PLAYER);
 			
 			System.out.println(this.result.getResultMessage());
 			
@@ -118,7 +118,7 @@ public class BlackjackGame {
 			hit();
 		}
 		
-		this.result = GameDecider.validateHands(this.DEALER, this.PLAYER);
+		this.result = GameDecider.decideDuringGame(this.DEALER, this.PLAYER);
 	}
 
 	private void hit() {
