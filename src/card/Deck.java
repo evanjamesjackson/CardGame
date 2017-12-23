@@ -48,38 +48,19 @@ public class Deck {
 	 */
 	public Card draw() throws EmptyDeckException {
 		if (!this.CARDS.isEmpty()) {
-			return this.CARDS.get(TOP_CARD_INDEX);
+			Card drawnCard = this.CARDS.get(TOP_CARD_INDEX);
+			this.CARDS.remove(drawnCard);
+			return drawnCard;
 		} else {
 			throw new EmptyDeckException();
 		}
 	}
 	
-	/**
-	 * If this Deck is empty, refills it with the given list.
-	 * @param cards cards to add to this Deck
-	 * @throws NonEmptyDeckException if this Deck is not empty
-	 */
-	public void refill(List<Card> cards) throws NonEmptyDeckException {
-		if (this.CARDS.isEmpty()) {
-			this.CARDS.addAll(cards);
-		} else {
-			throw new NonEmptyDeckException();
-		}
+	public void refill(List<Card> cards) {
+		this.CARDS.addAll(cards);
 	}
 	
-	private class EmptyDeckException extends Exception {
+	public class EmptyDeckException extends Exception {
 		private static final long serialVersionUID = 3355183511028995388L;
-
-		public EmptyDeckException() {
-			super("Deck is empty");
-		}
-	}
-	
-	private class NonEmptyDeckException extends Exception {
-		private static final long serialVersionUID = 9204020132201411745L;
-		
-		public NonEmptyDeckException() {
-			super("Cannot add cards. Deck is not empty.");
-		}
 	}
 }
