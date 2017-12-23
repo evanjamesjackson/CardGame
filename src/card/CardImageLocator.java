@@ -11,6 +11,9 @@ public class CardImageLocator {
 	private static final ImageIcon FACE_DOWN_IMAGE = 
 			new ImageIcon(IMAGE_DIRECTORY + "back" + JPEG_EXTENSION);
 	
+	/**
+	 * Returns an image showing the back of a card.
+	 */
 	public static ImageIcon getFaceDownImage() {
 		return FACE_DOWN_IMAGE;
 	}
