@@ -44,4 +44,29 @@ public abstract class Hand {
 		}
 		return handValue;
 	}
+	
+	/**
+	 * Empties this Hand and returns the Cards the Hand held.
+	 */
+	public List<Card> discard() {
+		List<Card> discarded = this.CARDS;
+		this.CARDS.clear();
+		return discarded;
+	}
+	
+	@Override
+	public String toString() {
+		String result = "";
+		
+		for (int i = 0; i < this.CARDS.size(); i++) {
+			result += this.CARDS.get(i).asVisibleString();
+			if (i != (this.CARDS.size() - 1)) {
+				result += " + ";
+			}
+		}
+		
+		result += " = " + getValue();
+		
+		return result;
+	}
 }
