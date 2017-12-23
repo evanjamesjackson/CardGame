@@ -15,7 +15,7 @@ public class Card {
 	 * Creates a Card with the given Suit and Face value.
 	 */
 	public Card(Suit suit, Face face) {
-		this.isFaceUp = false;
+		this.isFaceUp = true;
 		this.SUIT = suit;
 		this.FACE = face;
 	}
