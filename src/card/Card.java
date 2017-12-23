@@ -7,8 +7,7 @@ import javax.swing.ImageIcon;
  */
 public class Card {
 	private static final String CARD_NAME_FACE_DOWN = "XXXXX";
-	private static final ImageIcon FACE_DOWN_IMAGE = new ImageIcon("back.jpg");
-	
+
 	private boolean isFaceUp;
 	
 	private final Suit SUIT;
@@ -23,9 +22,9 @@ public class Card {
 		this.isFaceUp = true;
 		this.SUIT = suit;
 		this.FACE = face;
-		this.IMAGE = new ImageIcon(this.FACE.getName() + this.SUIT.getName());
+		this.IMAGE = CardImageLocator.getFaceUpImage(face, suit);
 	}
-	
+
 	/**
 	 * Returns this Card's Suit.
 	 */
@@ -48,11 +47,15 @@ public class Card {
 		return this.FACE.getDefaultValue();
 	}
 
+	/**
+	 * If face-up returns, return this card's image. Otherwise,
+	 * returns an image of the back of the card.
+	 */
 	public ImageIcon getImage() {
 		if (isFaceUp) {
 			return this.IMAGE;	
 		} else {
-			return FACE_DOWN_IMAGE;
+			return CardImageLocator.getFaceDownImage();
 		}
 	}
 
