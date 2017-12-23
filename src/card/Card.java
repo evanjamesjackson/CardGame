@@ -1,15 +1,20 @@
 package card;
 
+import javax.swing.ImageIcon;
+
 /**
  * Represents a single playing Card.
  */
 public class Card {
 	private static final String CARD_NAME_FACE_DOWN = "XXXXX";
+	private static final ImageIcon FACE_DOWN_IMAGE = new ImageIcon("back.jpg");
 	
 	private boolean isFaceUp;
 	
 	private final Suit SUIT;
 	private final Face FACE;
+	
+	private final ImageIcon IMAGE;
 
 	/**
 	 * Creates a Card with the given Suit and Face value.
@@ -18,6 +23,7 @@ public class Card {
 		this.isFaceUp = true;
 		this.SUIT = suit;
 		this.FACE = face;
+		this.IMAGE = new ImageIcon(this.FACE.getName() + this.SUIT.getName());
 	}
 	
 	/**
@@ -40,6 +46,14 @@ public class Card {
 	 */
 	public int getDefaultValue() {
 		return this.FACE.getDefaultValue();
+	}
+
+	public ImageIcon getImage() {
+		if (isFaceUp) {
+			return this.IMAGE;	
+		} else {
+			return FACE_DOWN_IMAGE;
+		}
 	}
 
 	/**
